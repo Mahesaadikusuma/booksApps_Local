@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App</title>
+    <link rel="stylesheet" href="./style/build.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+      rel="stylesheet" />
+  </head>
+  <body class="bg-slate-200">
+    <!-- <h1>Selamat Datang di todo talk</h1> -->
+    <div class="container mx-auto">
+      <div class="flex justify-center items-center flex-col my-10">
+        <h1 id="welcome">Selamat Datang di todo talk</h1>
+
+        <div class="bg-white p-16 lg:w-1/2 w-5/6 rounded-md shadow-lg">
+          <h1 class="mb-10 font-bold text-center text-xl">Masukan Buku</h1>
+          <div class="mt-7">
+            <form class="mx-auto" id="formBook">
+              <div class="mb-5">
+                <label
+                  for="title"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Judul Buku</label
+                >
+                <input
+                  type="text"
+                  id="title"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Masukan Judul Buku" />
+              </div>
+              <div class="mb-3">
+                <label
+                  for="author"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Author</label
+                >
+                <input
+                  type="text"
+                  id="author"
+                  placeholder="Masukan Author"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+              </div>
+
+              <div class="mb-3">
+                <label
+                  for="years"
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >Years</label
+                >
+                <input
+                  type="number"
+                  id="year"
+                  placeholder="2020"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+              </div>
+
+              <div class="flex items-start mb-5">
+                <div class="flex items-center h-5">
+                  <input
+                    id="isComplete"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" />
+                </div>
+                <label
+                  for="isComplete"
+                  class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >Selesai dibaca</label
+                >
+              </div>
+              <button
+                type="submit"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Masukan ke dalam rak buku
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <form class="lg:w-1/2 w-5/6 mx-auto my-2">
+          <label
+            for="default-search"
+            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            >Search</label
+          >
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg
+                class="w-4 h-4 text-gray-500 dark:text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20">
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+              </svg>
+            </div>
+            <input
+              type="search"
+              id="searchInput"
+              class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Search Mockups, Logos..."
+              required />
+            <button
+              type="submit"
+              class="text-white absolute end-2.5 bottom-2.5 bg-blue-800 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Search
+            </button>
+          </div>
+        </form>
+
+        <div class="lg:w-1/2 w-5/6 my-10">
+          <div class="">
+            <h2>Buku Belum dibaca</h2>
+
+            <div class="book-list" id="uncompletedReading">
+              <!-- <div class="list-item">
+                <article class="">
+                  <div class="flex-col">
+                    <h3>judul</h3>
+                    <p>author : esa</p>
+                    <p>Tahun: 2022</p>
+                  </div>
+                </article>
+
+                <div class="action-reading" id="action">
+                  <button class="text-red-500">Hapus Buku</button>
+                  <button class="text-green-500">Belum selesai dibaca</button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:w-1/2 w-5/6 my-3">
+          <div class="">
+            <h2>Selesai dibaca</h2>
+
+            <div class="book-list" id="completedReading">
+              <!-- <div class="list-item">
+                  <article class="">
+                    <div class="flex-col">
+                      <h3>judul</h3>
+                      <p>author : esa</p>
+                      <p>Tahun: 2022</p>
+                    </div>
+                  </article>
+
+                  <div class="action-reading" id="action">
+                    <button class="text-red-500">Hapus Buku</button>
+                    <button class="text-green-500">Belum selesai dibaca</button>
+                  </div>
+                </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="./script/main.js"></script>
+  </body>
+</html>
